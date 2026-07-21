@@ -17,4 +17,12 @@ app.get('/api/courses', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Trading Academy live at http://localhost:${PORT}`);
+});const path = require('path');
+
+// Serve your HTML, CSS, and JS files
+app.use(express.static(path.join(__dirname)));
+
+// Route for the homepage
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
